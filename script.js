@@ -85,7 +85,10 @@ title.textContent = "Employee database";
 const columnLabels = document.createElement("div");
 columnLabels.setAttribute("id", "col-names");
 
-gridContainer.append(title, columnLabels);
+const empList = document.createElement("ul");
+empList.setAttribute("id", "emp-list");
+
+gridContainer.append(title, columnLabels, empList);
 
 const columns = ["Name", "Position", "Email", "Tel", "Location"];
 
@@ -96,9 +99,6 @@ for (let column of columns) {
   columnLabels.append(colElem);
 }
 
-const empList = document.createElement("ul");
-title.setAttribute("id", "table-name");
-
 for (let employee of employees) {
   const empElem = document.createElement("li");
   const name = document.createElement("p");
@@ -108,7 +108,7 @@ for (let employee of employees) {
   const email = document.createElement("p");
   email.textContent = employee.email;
   const tel = document.createElement("p");
-  tel.textContent = employee.tel;
+  tel.textContent = employee.phone;
   const location = document.createElement("p");
   location.textContent = employee.location;
   empElem.append(name, position, email, tel, location);
